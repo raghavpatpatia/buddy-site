@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buddy Privacy Policy</title>
+<meta name="description" content="What data Buddy uses, where it goes, and the choices you have.">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header class="top">
+  <img src="icon.png" alt="">
+  <a href="./">Buddy</a>
+  <nav><a href="privacy.html">Privacy</a><a href="delete-account.html">Delete account</a></nav>
+</header>
+
+<h1>Buddy Privacy Policy</h1>
+<p class="muted">Last updated: 12 November 2026 · App: Buddy (<code>com.raghav.buddy_app</code>) for Android ·
+Developer: Raghav Patpatia · Contact: <a href="mailto:raghav.patpatia@gmail.com">raghav.patpatia@gmail.com</a></p>
+
+<p>Buddy is a companion app for Android. You can chat with it, and it helps with money, health and medicines,
+music, books and films, maps and travel, screen time, phone cleaning and games with friends (Buddy Arena). This
+policy explains what data Buddy uses, where that data goes, and the choices you have.</p>
+
+<div class="card">
+  <p><strong>The short version.</strong> Most of what Buddy does happens on your phone. Buddy reads your SMS,
+  contacts and files only on the phone and never uploads them. Data leaves your phone only for the features listed
+  below, and only the part that each feature needs. Buddy does not sell your data. Signing in, cloud backup, cloud AI
+  and Buddy Arena are all optional.</p>
+</div>
+
+<h2>1. Your account, cloud backup and Buddy Arena (Firebase)</h2>
+<p>Buddy uses Google Firebase (Authentication, Cloud Firestore, Cloud Functions and Cloud Messaging), run by
+Google, to provide these optional features. The data is stored in Buddy's Firebase project.</p>
+<h3>Sign-in (optional)</h3>
+<p>You can sign in with your Google account. Firebase Authentication receives your name, email address and Google
+account ID, and gives you a Buddy user ID.</p>
+<h3>Cloud backup (optional, only when signed in)</h3>
+<ul>
+  <li>Buddy backs up its settings and data automatically, shortly after something changes. It is stored under
+    your user ID, and the database rules allow only your signed-in account to read or write it. Only the latest copy
+    is kept.</li>
+  <li><strong>Encrypted with your passphrase:</strong> your money data (transactions, balances, deposits, holdings and
+    budgets), health data (meals, workouts, weight, step history, medicines and the doses you took), your profile and
+    birth details, your chat with Buddy and its notes, SOS contacts and note, saved and nearby places, your job
+    profile, your email address, reading progress and highlights, and saved passwords and keys (your email app
+    password and any API keys you added). These are encrypted on your phone (PBKDF2-SHA256 and AES-256-GCM) with a
+    passphrase that only you know, before they are uploaded. Without the passphrase nobody can read them, including the
+    developer. If you have not set a passphrase, they are not uploaded at all.</li>
+  <li><strong>Not encrypted with your passphrase:</strong> other settings, such as your theme, avatar look, to-do
+    list, levels, XP and trophies, music favourites and saved stations, saved sites in Browse, and app preferences. They
+    are protected by the access rules and Google's encryption at rest, so only your account can read them through
+    the app.</li>
+  <li>Downloaded files (AI models, offline maps, saved books and songs) are not backed up.</li>
+</ul>
+<h3>Buddy Arena (optional, only when signed in)</h3>
+<ul>
+  <li><strong>Hunter card:</strong> your hunter name, avatar gender, weapon, level, lifetime XP, best wave and boss
+    wins. Other signed-in players can see it on leaderboards and in search.</li>
+  <li><strong>Friends and chat:</strong> friend requests, your friends list, chat messages and read markers. Only you
+    and the friend involved can read them. When you send a message, Cloud Functions passes the sender's name and up to
+    300 characters of the text to Firebase Cloud Messaging, which delivers a notification to your friend.</li>
+  <li><strong>Voice calls and parties:</strong> calls and Boss Arena parties go directly between phones (peer to peer,
+    encrypted by WebRTC). To connect, the phones swap network addresses through Firestore and Google's public STUN
+    servers. Call audio is not recorded or stored.</li>
+  <li><strong>Online games</strong> (such as chess, tic-tac-toe, carrom and Quoridor): a game room with its code,
+    the players and their moves. Only the players in a room can read it. Public rooms can be found through Quick
+    match.</li>
+  <li><strong>Blocks and limits:</strong> who you blocked, and a timestamp that limits how often requests can be
+    sent.</li>
+  <li><strong>Push token:</strong> a token for your phone, so calls and messages can reach you when Buddy is closed.</li>
+</ul>
+<h3>Family memories</h3>
+<p>From a certain level, a Buddy character can become your family member and remember the times you spent
+together. These memories are short notes, up to 280 characters each, based on your chats with that character. They
+are stored only on Buddy's server. The database rules stop any app or account from reading or changing them
+directly; only Buddy's server code can add them or send them back to your app. They are <em>not</em> encrypted with
+your passphrase. They are removed when you delete your account.</p>
+<h3>Money PIN</h3>
+<p>If you set a PIN to hide your money screens, a salted and peppered hash of the PIN is stored on Buddy's
+server in encrypted form. The PIN itself is never stored. If you forget it, a 6-digit code is emailed to your Google account's
+address through the Brevo email service. The code expires after 10 minutes.</p>
+<h3>App Check</h3>
+<p>Buddy uses Firebase App Check with Google Play Integrity to check that requests come from the real Buddy app.
+Google receives information about the app and the device's integrity for this check.</p>
+
+<h2>2. Analytics, crash reports and performance</h2>
+<ul>
+  <li><strong>Firebase Analytics</strong> records how Buddy is used: which screens and features are opened, how long
+    the app and AI replies take, the length of a message in characters, the phone's memory size, settings such as
+    which AI model is on and whether the wake word is on, and the name of a radio station you play. It never records what you say, type, read or browse.
+    Google Analytics also collects standard data such as an app-instance ID, the device model, the Android version and
+    your approximate location from your IP address.</li>
+  <li><strong>Firebase Crashlytics</strong> receives crash reports: the error and stack trace, device model, Android
+    version, app version and memory use. Buddy also reports when Android closed the app itself (for example, when the
+    phone ran out of memory).</li>
+  <li><strong>Firebase Performance Monitoring</strong> measures timings such as how long the app takes to start.</li>
+</ul>
+<p>This data is not linked to your name or email, and it is used only to fix bugs and improve Buddy. Google keeps
+it under Firebase's retention limits (Crashlytics reports for about 90 days, Analytics data for up to 14 months).</p>
+
+<h2>3. Ads (Google AdMob)</h2>
+<p>Buddy Arena can offer a rewarded video ad, for example to revive after you fall in a run. Watching one is your
+choice. Google AdMob serves these ads and may use your device's advertising ID, IP address and basic device
+information to show ads, measure them and prevent fraud. You can reset your advertising ID or turn off personalised
+ads in your phone's settings (<em>Settings → Google → Ads</em>, or <em>Settings → Privacy → Ads</em>). See
+<a href="https://policies.google.com/technologies/ads">how Google uses information from apps that use its ad
+services</a>. Buddy never gives AdMob your money, health, SMS, contacts, files or chat data.</p>
+
+<h2>4. Permissions and data on your phone</h2>
+<p>You can turn any permission off in Android Settings at any time. Only the related feature stops working.</p>
+<div class="wrap"><table>
+<tr><th>Permission</th><th>What Buddy does with it</th></tr>
+<tr><td>Microphone</td><td>
+  <strong>Talking to Buddy:</strong> your speech is turned into text by your phone's speech-recognition service
+  (usually Google's). When you are online, that service may process the audio on its own servers, under its own
+  privacy policy. When you are offline, recognition runs on the phone.<br>
+  <strong>Wake word ("Hey Buddy"), if you turn it on:</strong> a foreground service listens with a speech model that
+  runs entirely on the phone, and a notification shows while it listens. Audio is not uploaded. If you teach the
+  wake word your voice, the short recordings are kept on the phone only.<br>
+  <strong>Song recorder (Practice):</strong> records your singing on the phone and saves an MP3 and a notes file in
+  your Download/Buddy folder. If you download the optional lyrics model (OpenAI Whisper), lyrics are found on the
+  phone. The audio is never uploaded.<br>
+  <strong>Buddy Arena voice calls:</strong> used only while you are in a call (see section 1).</td></tr>
+<tr><td>Camera</td><td>Buddy does not use the camera and does not ask for camera permission.</td></tr>
+<tr><td>SMS (read)</td><td>Bank, card and UPI messages are read on the phone to record your spending, income and
+  balances in Spend. Other messages are ignored. Messages are never uploaded. The transactions found are saved on the
+  phone and are part of the encrypted backup.</td></tr>
+<tr><td>SMS (send)</td><td>Used only when you trigger SOS: Buddy texts your chosen emergency contacts a help message
+  with your location and your SOS note. Without this permission, your SMS app opens with the message ready to
+  send.</td></tr>
+<tr><td>Contacts</td><td>Shows a person's name instead of a number next to a payment, and lets you pick SOS
+  contacts. Your contacts list is never uploaded. Only the SOS contacts you choose are saved, and they are part of
+  the encrypted backup.</td></tr>
+<tr><td>Location</td><td>Maps and navigation, weather, nearby food and medical help, nearby jobs, SOS and the station
+  alarm. The station alarm follows your GPS position in the background (with a notification) only while it is set.
+  See section 5 for what is sent.</td></tr>
+<tr><td>Accessibility service ("Buddy scroll tracker")</td><td>Counts how many Reels, Shorts and other short videos
+  you swipe through, so Buddy can show your daily scroll stats, nudge you and stop you at your limit. It only watches
+  Instagram, YouTube, TikTok, Facebook, Snapchat, Moj, Josh and ShareChat. To tell one YouTube Short from the next, it
+  briefly checks the channel name and title on screen; these are kept in memory only and never saved or sent. Only
+  the counts are stored, on the phone. It does not perform actions for you.</td></tr>
+<tr><td>Usage access</td><td>Screen time per app, and the cleaner's list of apps you have not used for a long time.
+  It stays on the phone.</td></tr>
+<tr><td>All files access</td><td>The Cleaner finds thumbnail caches, old installers, duplicates, viewed WhatsApp
+  statuses, old screenshots, old downloads and large videos, and shows them to you. Nothing is deleted unless you
+  choose it. The Library uses it to list and open the documents, books and videos on your phone. File names and
+  contents are never uploaded.</td></tr>
+<tr><td>Music and audio</td><td>Lists the songs on your phone in Music. They stay on the phone.</td></tr>
+<tr><td>Physical activity</td><td>Counts your steps for Health.</td></tr>
+<tr><td>Notifications, full-screen alerts, alarms</td><td>Reminders (water, medicines, morning brief, daily growth),
+  alarms and timers, chat messages, incoming Arena calls (shown full screen, like a phone call), music controls and
+  download progress. Exact alarms make alarms and medicine reminders ring on time.</td></tr>
+<tr><td>Run in background, display over other apps</td><td>Keeps Buddy's companion service running for reminders and
+  the scroll tracker (a permanent notification shows while it runs), and lets Buddy come to the front when you say
+  the wake word or reach your reels limit.</td></tr>
+</table></div>
+
+<h3>Medicines and health data</h3>
+<p>Your medicines, the doses you mark as taken, meals, workouts, weight and steps are stored on the phone. Medicine
+reminders are scheduled on the phone. This data is never sent to analytics or to any AI. It leaves the phone only
+inside the cloud backup, encrypted with your passphrase (section 1).</p>
+
+<h2>5. Data that goes to other services</h2>
+<p>These features contact outside services directly from your phone. Each one gets only what the feature needs, and
+its own privacy policy applies.</p>
+<div class="wrap"><table>
+<tr><th>Feature</th><th>What is sent</th><th>Sent to</th></tr>
+<tr><td>Maps, navigation, places</td><td>The map area you view, places you search for, a route's start and end
+  points, and your position when you ask for things near you</td><td>OpenStreetMap services (map tiles, Nominatim,
+  Overpass, Photon by Komoot, Valhalla). Offline map packs are downloaded from GitHub.</td></tr>
+<tr><td>Weather</td><td>Your coordinates</td><td>Open-Meteo</td></tr>
+<tr><td>Movies</td><td>Your searches and the films you stream or save</td><td>Internet Archive (archive.org). Only
+  films marked public domain or Creative Commons are saved, to your Movies/Buddy folder.</td></tr>
+<tr><td>Movies: free films and trailers on YouTube</td><td>These play in YouTube's embedded player. YouTube may
+  collect data and set cookies when a video plays.</td><td>YouTube. The <a href="https://www.youtube.com/t/terms">YouTube
+  Terms of Service</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> apply.</td></tr>
+<tr><td>Movies: search, posters and trailers (optional)</td><td>Your searches, sent with your own TMDB key</td><td>The
+  Movie Database (TMDB). Buddy ships with no key. Yours is kept in the phone's secure storage.</td></tr>
+<tr><td>Browse</td><td>The sites you open load directly from those sites, in Buddy's web view or a Chrome tab.
+  Their cookies and site data are kept on your phone, and you can clear a site's data in Buddy. Buddy does not record
+  the addresses you visit; analytics only notes that Browse was opened.</td><td>The sites you choose</td></tr>
+<tr><td>Flights</td><td>Flight numbers (sent with your own RapidAPI key), and an aircraft's callsign or transponder code
+  for its live position</td><td>AeroDataBox on RapidAPI; OpenSky Network and adsb.lol</td></tr>
+<tr><td>Trains</td><td>Train numbers, stations and PNR numbers, sent with your own RapidAPI key</td><td>IRCTC API on
+  RapidAPI</td></tr>
+<tr><td>Music, radio and lyrics</td><td>Searches and the titles of songs you play or download</td><td>Internet
+  Archive, Audius, Radio Browser and the stations' streams, iTunes Search, LRCLIB</td></tr>
+<tr><td>Books and learning</td><td>Book searches and the books you download</td><td>Project Gutenberg, Open Library,
+  Google Books, OpenStax, LibriVox</td></tr>
+<tr><td>News, web answers, dictionary</td><td>Search words and the words you look up</td><td>Google News, Hacker
+  News, Wikipedia, DuckDuckGo, Free Dictionary API</td></tr>
+<tr><td>Jobs</td><td>Search words and your city</td><td>Job boards (for example Greenhouse, SmartRecruiters, Ashby,
+  Remotive, RemoteOK, Jobicy and Himalayas)</td></tr>
+<tr><td>Market prices</td><td>The fund and stock symbols you track, not your amounts</td><td>Yahoo Finance</td></tr>
+<tr><td>Mail (optional)</td><td>Your email login, to fetch and send your mail. The app password is stored encrypted on
+  your phone.</td><td>Your own email provider only</td></tr>
+<tr><td>Email read tracking (optional)</td><td>If you set it up, an invisible image is added to emails you send, and
+  opens are logged</td><td>A tracking server that you run yourself. Buddy offers it only after you confirm that server.</td></tr>
+<tr><td>Model downloads</td><td>A normal download request</td><td>Hugging Face, GitHub, Google ML Kit (the handwriting
+  model)</td></tr>
+</table></div>
+
+<h2>6. Buddy's AI</h2>
+<ul>
+  <li><strong>On-device AI.</strong> Buddy can download an AI model (such as Gemma or Qwen) and run it on your phone.
+    Whatever you send it stays on the phone. Buddy's voice (Kitten TTS) and handwriting recognition also run on the
+    phone.</li>
+  <li><strong>Cloud AI with your own key (optional).</strong> If you add your own API key for Google Gemini,
+    OpenRouter or Amazon Bedrock (Anthropic Claude or Amazon Nova), the text for that request goes to that provider:
+    your message, the recent conversation, facts Buddy remembers about you, and passages from documents you added to
+    Buddy's library when they answer your question. Some features also use it: to-do sorting (the task text), food
+    estimates (the food name), spending categories (merchant names only, never amounts, dates, balances or accounts),
+    email drafts (the email you are replying to), job tips (your job profile), and the investing coach and stock
+    analysis (the funds and stocks you hold and your risk preference). Your spending figures, SMS, health data and
+    medicines are never sent to a cloud AI. The provider's privacy policy applies. Without a key, nothing is sent and
+    the on-device model is used.</li>
+</ul>
+
+<h2>7. The 3D avatar</h2>
+<p>Buddy's 3D characters are drawn on your phone from models built into the app. Your choices (character, face,
+hair, outfit and colours) are saved on the phone and in your backup. One character's face is modelled on a real
+person, with that person's consent. No camera is used, and no photo of you is taken or uploaded.</p>
+
+<h2>8. Children</h2>
+<p>Buddy is for adults aged 18 and over. It is not directed at children, and we do not knowingly collect data from
+anyone under 18. If you believe a child has used Buddy, email us and we will delete their cloud data.</p>
+
+<h2>9. Sharing and selling</h2>
+<p>Buddy does not sell your personal data and does not share it, except with the services named in this policy,
+which process it only to provide their feature. Data may also be disclosed if the law requires it.</p>
+
+<h2>10. Security</h2>
+<p>Data sent over the internet uses encrypted connections (HTTPS/TLS). Firestore rules limit who can read each piece
+of cloud data. Money, health and other personal data, and saved passwords and keys, are encrypted with your passphrase
+before upload. On the phone, passwords and keys are kept in Android's secure storage. Android's own cloud backup and
+phone-to-phone transfer are turned off for Buddy's data.</p>
+
+<h2>11. How long data is kept</h2>
+<ul>
+  <li><strong>On your phone:</strong> until you delete it in the app, clear Buddy's storage or uninstall Buddy. Songs
+    you record and films you save stay in your Download/Buddy and Movies/Buddy folders until you delete them.</li>
+  <li><strong>Cloud backup, Arena data, family memories and money PIN:</strong> until you delete them or delete your
+    account. Each new backup replaces the previous one.</li>
+  <li><strong>Analytics and crash reports:</strong> see section 2.</li>
+  <li><strong>Other services:</strong> under their own policies.</li>
+</ul>
+
+<h2>12. Your choices and rights</h2>
+<ul>
+  <li>Use Buddy without signing in. Nothing is then stored in Buddy's cloud.</li>
+  <li>Turn off any permission, or any part of Buddy, in <em>Settings → My components</em>.</li>
+  <li>See, correct or delete your data in the app. You can also restore your backup or sign out at any time.</li>
+  <li>Delete your account and all of its cloud data in the app, or by email. See
+    <a href="delete-account.html">how to delete your account</a>.</li>
+  <li>Ask us for a copy of your cloud data, or ask any question about your data, at
+    <a href="mailto:raghav.patpatia@gmail.com">raghav.patpatia@gmail.com</a>. We reply within 30 days.</li>
+</ul>
+
+<h2>13. Changes</h2>
+<p>If this policy changes, the new version will be posted here with a new "Last updated" date. Important changes will
+also be shown in the app.</p>
+
+<h2>14. Contact</h2>
+<p>Raghav Patpatia · <a href="mailto:raghav.patpatia@gmail.com">raghav.patpatia@gmail.com</a></p>
+
+<footer><a href="./">Buddy</a> · <a href="delete-account.html">Delete your account</a></footer>
+</main>
+</body>
+</html>
